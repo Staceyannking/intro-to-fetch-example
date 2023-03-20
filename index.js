@@ -14,9 +14,35 @@ function main() {
 
     // Astronomical Image
 
+    /*
+    
+    1. fetch
+    2. response.json
+    3. use the data
+
+
+    */
+
     // Fetch for the astronomical image here
+    
+    // const fetchPromise = fetch('https://go-apod.herokuapp.com/apod');
+    // fetch returns a Promise object
+    // console.log(fetchPromise); // prints [object Promise] { ... }
+    // fetchPromise.then(response =>{
+    //     const dataPromise = response.json();
+    //     return dataPromise 
+    // })
+    
+    // dataPromise.then((data) => {
+    //     console.log(data);
+    // })
 
-
+    fetch('https://go-apod.herokuapp.com/apod')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.hdurl);
+            astroImageEl.src = data.hdurl
+        })
 
     // Sunset/Sunrise 
 
